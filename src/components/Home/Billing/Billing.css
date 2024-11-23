@@ -1,0 +1,72 @@
+.billing-page-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .billing-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .billing-breakdown {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    color:black
+  }
+  
+  .breakdown-row.total {
+    font-weight: bold;
+  }
+  
+  .pay-now-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pay-now-button:hover {
+    background-color: #218838;
+  }
+  
+  .transaction-history {
+    margin-top: 20px;
+  }
+  
+  .transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .transaction-history th,
+  .transaction-history td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .transaction-history th {
+    background-color: #f1f1f1;
+  }
+  
+  .transaction-history .paid {
+    color: green;
+  }
+  
+  .transaction-history .pending {
+    color: red;
+  }
+  

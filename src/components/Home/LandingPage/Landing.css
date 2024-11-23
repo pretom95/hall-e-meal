@@ -1,0 +1,167 @@
+/* 
+.home-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  height: 70vh;
+  background: #fdf5e6;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+  
+  .left {
+    height: 100%;
+    width: 50%;
+    /* padding: 40px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(to right, #f8c471, #fef9e7);
+  }
+  
+  .left h1 {
+    font-size: 2.5rem;
+    color: #000;
+    margin: 0 0 10px;
+    font-family: 'Arial Black', sans-serif;
+  }
+  
+  .left p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sign-in {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ff5733;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .sign-in:hover {
+    background-color: #e84118;
+  }
+  
+  .buttons p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .right {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+   */
+
+   .home-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    width: 2000vh;
+    background: #fdf5e6;
+    border-radius: 100px;
+    overflow: hidden;
+    box-shadow: 0 40px 1000px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Left Section */
+  .left-section {
+    flex: 1;
+    background: linear-gradient(to bottom right, #ffcc00, #ffd700);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: black;
+    padding: 100px;
+  }
+  
+  .left-section h1 {
+    font-size: 3rem;
+    font-family: "Brush Script MT", cursive;
+    margin-bottom: 100px;
+  }
+  
+  .left-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  
+  /* Signup Button */
+  .button {
+    background-color: #f3e2b2; /* Light beige color */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Black border */
+    border-radius: 50px; /* Rounded edges */
+    padding: 10px 30px; /* Padding for height and width */
+    font-size: 16px; /* Font size for the text */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center-align the text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .button:hover {
+    background-color: #f5d78c; /* Slightly darker beige for hover effect */
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  
+  
+  .create-account {
+    margin-top: 15px;
+    font-size: 2+ rem;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .create-account a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .create-account a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Right Section */
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .food-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-left: 1px solid #ddd;
+  }

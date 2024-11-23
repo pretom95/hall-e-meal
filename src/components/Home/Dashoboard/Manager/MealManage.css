@@ -1,0 +1,57 @@
+.meal-manager-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .overview-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .overview-card {
+    background: #ffeeba;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .meal-schedule, .billing-section, .announcements-section {
+    margin-bottom: 20px;
+  }
+  
+  .meal-schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .meal-schedule th, .meal-schedule td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .add-button, .edit-button, .delete-button, .post-button, .generate-report-button {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  

@@ -1,0 +1,78 @@
+.notification-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .notification-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .filter-section label {
+    margin-right: 10px;
+  }
+  
+  .filter-section select {
+    padding: 5px;
+  }
+  
+  .notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .notification-card {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .notification-card.unread {
+    border-left: 5px solid #007bff;
+  }
+  
+  .notification-card.read {
+    opacity: 0.6;
+  }
+  
+  .notification-card h3 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .notification-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .notification-card .notification-date {
+    font-size: 0.8rem;
+    color: #999;
+  }
+  
+  .mark-read-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mark-read-button:hover {
+    background-color: #218838;
+  }
+  

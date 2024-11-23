@@ -1,0 +1,87 @@
+/* Container */
+.signup-container {
+    width: 90%;
+    max-width: 600px;
+    background: #fdf5e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #ffcc00, #ffd700);
+    color: black;
+    font-family: "Brush Script MT", cursive;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  /* Form Container */
+  .form-container {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .form-container h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .form-container p {
+    margin: 10px 0 20px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  /* Input Fields */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Signup Button */
+  .signup-button {
+    width: 200%;
+    padding: 10px;
+    margin-top: 20px;
+    background: linear-gradient(to right, #ffd700, #ff9900);
+    border: black;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .signup-button:hover {
+    background: #ffcc00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Footer Text */
+  .footer-text {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .link {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
