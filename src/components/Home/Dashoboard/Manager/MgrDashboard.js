@@ -1,19 +1,37 @@
 import React, { useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
 import "./MgrDashboard.css";
 
 const MgrDashboard = () => {
-  const [announcements, setAnnouncements] = useState([
-    "Special dinner planned for Friday.",
-    "Kitchen maintenance on Sunday; no meals will be served.",
+  const [mealData, setMealData] = useState([
+    { id: 1, mealType: "Breakfast", time: "7:00 AM", details: "Paratha, Omelette, Tea" },
+    { id: 2, mealType: "Lunch", time: "12:30 PM", details: "Rice, Chicken Curry, Salad" },
   ]);
 
-  const [newAnnouncement, setNewAnnouncement] = useState("");
+  const columns = [
+    { field: "mealType", headerName: "Meal Type", width: 150 },
+    { field: "time", headerName: "Time", width: 130 },
+    { field: "details", headerName: "Details", width: 250 },
+    {
+      field: "actions",
+      headerName: "Actions",
+      width: 200,
+      renderCell: (params) => (
+        <div>
+          <button className="edit-button" onClick={() => handleEdit(params.row)}>Edit</button>
+          <button className="delete-button" onClick={() => handleDelete(params.row.id)}>Delete</button>
+        </div>
+      ),
+    },
+  ];
 
-  const handleAddAnnouncement = () => {
-    if (newAnnouncement.trim()) {
-      setAnnouncements([newAnnouncement, ...announcements]);
-      setNewAnnouncement("");
-    }
+  const handleEdit = (row) => {
+    alert(`Edit meal: ${row.mealType}`);
+  };
+
+  const handleDelete = (id) => {
+    const updatedData = mealData.filter((meal) => meal.id !== id);
+    setMealData(updatedData);
   };
 
   return (
@@ -27,70 +45,19 @@ const MgrDashboard = () => {
       {/* Meal Schedule Management */}
       <section className="schedule-management">
         <h2>Meal Schedule Management</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Meal Type</th>
-              <th>Time</th>
-              <th>Details</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Breakfast</td>
-              <td>7:00 AM</td>
-              <td>Paratha, Omelette, Tea</td>
-              <td>
-                <button className="edit-button">Edit</button>
-                <button className="delete-button">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Lunch</td>
-              <td>12:30 PM</td>
-              <td>Rice, Chicken Curry, Salad</td>
-              <td>
-                <button className="edit-button">Edit</button>
-                <button className="delete-button">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      {/* Billing Overview */}
-      <section className="billing-overview">
-        <h2>Billing Overview</h2>
-        <div className="stats">
-          <div className="stat-card">
-            <h3>Total Revenue</h3>
-            <p>$1200</p>
-          </div>
-          <div className="stat-card">
-            <h3>Outstanding Dues</h3>
-            <p>$300</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Announcements */}
-      <section className="announcements">
-        <h2>Announcements</h2>
-        <div className="announcement-input">
-          <textarea
-            placeholder="Write a new announcement..."
-            value={newAnnouncement}
-            onChange={(e) => setNewAnnouncement(e.target.value)}
+        <div className="data-grid-container">
+          <DataGrid
+            rows={mealData}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+            autoHeight
+            className="mui-data-grid"
           />
-          <button onClick={handleAddAnnouncement}>Post</button>
         </div>
-        <ul>
-          {announcements.map((announcement, index) => (
-            <li key={index}>{announcement}</li>
-          ))}
-        </ul>
       </section>
+
+      {/* Additional sections like Billing Overview and Announcements go here */}
     </div>
   );
 };

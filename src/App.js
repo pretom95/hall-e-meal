@@ -10,7 +10,6 @@ import MgrDashboard from "./components/Home/Dashoboard/Manager/MgrDashboard";
 import Billing from "./components/Home/Billing/Billing";
 import Schedule from "./components/Home/Schedule/Schedule";
 import History from "./components/Home/History/History";
-import MealManage from "./components/Home/Dashoboard/Manager/MealManage";
 import NotificationPage from "./components/Home/NotificationPage/NotificationPage";
 import EditProfile from "./components/Home/EditProfile/EditProfile";
 
@@ -24,7 +23,6 @@ function App() {
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/stddashboard" element={<StdDashboard/>}/>
           <Route path="/mgrdashboard" element={<MgrDashboard/>}/>
-          <Route path="/mealmanage" element={<MealManage/>}/>
           <Route path="/billing" element={<Billing/>}/>
           <Route path="/schedule" element={<Schedule/>}/>
           <Route path="/history" element={<History/>}/>
