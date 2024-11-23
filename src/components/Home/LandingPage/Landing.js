@@ -1,26 +1,10 @@
+//import mealImage from './meal.jpg';
 import React from 'react'
 import './Landing.css'
 import { Link } from 'react-router-dom'
 
 export default function Landing({}) {
   return (
-    // <div className="container">
-    //   <div className="left">
-    //     <h1>HALL E MEAL</h1>
-    //     <p>Your friendly dining companion</p>
-    //     <div className="buttons">
-    //       <Link to={"/signin"}>Sign In</Link>
-    //       <button className="creat account">Creat account?</button>
-    //     </div>
-    //   </div>
-    //   <div className="right">
-    //     <img
-    //       src="https://via.placeholder.com/600x400" // Replace with your image URL
-    //       alt="Meal Platter"
-    //     />
-    //   </div>
-    // </div>
-
     <div className="home-container">
       <div className="left-section">
         <h1>HALL E MEAL</h1>
@@ -38,7 +22,7 @@ export default function Landing({}) {
       </div>
       <div className="right-section">
         <img
-          src="G:\Web Dev\react-first\public\meal.jpg"
+          src='./meal.jpg'
           alt="Delicious Meal"
           className="food-image"
         />
