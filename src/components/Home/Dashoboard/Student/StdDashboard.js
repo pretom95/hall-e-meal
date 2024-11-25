@@ -6,19 +6,7 @@ const StdDashboard = () => {
   return (
     <div className="dashboard">
       {/* Header Section */}
-      <header className="dashboard-header">
-        <h1>Welcome, [User Name]!</h1>
-        <nav>
-          <ul className="nav-links">
-            <li> <Link to="/stddashboard">Home</Link></li>
-            <li> <Link to="/schedule">Meal Schedule</Link></li>
-            <li> <Link to="/notifications">Notifications</Link></li>
-            <li> <Link to="/signin">Log Out</Link></li>
-            
-          </ul>
-        </nav>
-      </header>
-
+      
       {/* Main Section */}
       <main className="dashboard-main">
         <div className="stats">
@@ -38,11 +26,6 @@ const StdDashboard = () => {
       </main>
 
       {/* Buttons Section */}
-      <footer className="dashboard-footer">
-      <div> <Link to="/history" className="button">Meal history</Link></div>
-      <div> <Link to="/billing" className="button">Make payment</Link></div>
-      <div> <Link to="/editprofile" className="button">Edit Profile</Link></div>
-      </footer>
     </div>
   );
 };

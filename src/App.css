@@ -7,6 +7,9 @@ body {
   min-height: 100vh;
   background: linear-gradient(to right, #f8c471, #fef9e7);
 }
+a{
+  text-decoration: none !important;
+}
 
 .container {
   display: flex;

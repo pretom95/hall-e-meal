@@ -12,16 +12,17 @@ import Schedule from "./components/Home/Schedule/Schedule";
 import History from "./components/Home/History/History";
 import NotificationPage from "./components/Home/NotificationPage/NotificationPage";
 import EditProfile from "./components/Home/EditProfile/EditProfile";
+import Header from "./components/Extra/Header";
 
 function App() {
   const ref = useRef();
   return (
+    <>
     <Router basename='/'>
       <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/signup" element={<SignUp/>}/>
-          <Route path="/stddashboard" element={<StdDashboard/>}/>
           <Route path="/mgrdashboard" element={<MgrDashboard/>}/>
           <Route path="/billing" element={<Billing/>}/>
           <Route path="/schedule" element={<Schedule/>}/>
@@ -31,6 +32,18 @@ function App() {
         
       </Routes>
     </Router>
+    <Router basename="/dashboard">
+        <Routes>
+          <Route path="/student" element={<><Header/><StdDashboard/></>}/>
+          <Route path="/manager" element={<MgrDashboard/>}/>
+          <Route path="/schedule" element={<><Header/><Schedule/></>}/>
+          <Route path="/notifications" element={<><Header/><NotificationPage/></>}/>
+          <Route path="/history" element={<><Header/><History/></>}/>
+          <Route path="/billing" element={<><Header/><Billing/></>}/>
+          <Route path="/editProfile" element={<><Header/><EditProfile/></>}/>
+      </Routes>
+    </Router>
+    </>
   );
 }
 export default App;

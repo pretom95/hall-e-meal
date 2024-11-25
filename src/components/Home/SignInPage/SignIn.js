@@ -6,7 +6,7 @@ const SignIn = () => {
   return (
     <div className="signin-container">
       <div className="left-section">
-        <h1>HALL E MEAL</h1>
+        <h1><b>HALL E MEAL</b></h1>
         <h2>WELCOME TO HALL E MEAL</h2>
       </div>
       <div className="right-section">
@@ -22,18 +22,22 @@ const SignIn = () => {
             placeholder="PASSWORD"
             className="signin-input"
           />
-          <div className="checkbox-container">
-            <input type="checkbox" id="remember" />
-            <label htmlFor="remember">REMEMBER FOR 1 MONTH?</label>
+          <div className="second-container">
+            <div className="checkbox-container">
+              <input type="checkbox" id="remember" />
+              <label htmlFor="remember">REMEMBER FOR 1 MONTH?</label>
+            </div>
+            <div>
+              <Link to="/stddashboard" className="nbutton">Sign In</Link>
+            </div>
+            <br />
+
+            <div>
+              <Link to="/signup" className="create-account">&nbsp; OR CREATE ACCOUNT?</Link>
+            </div>
           </div>
-          <div>
-          <Link to="/stddashboard"className="nbutton">Sign In</Link>
-        </div>
+
         </form>
-        <p></p>
-        <div>
-          <Link to="/signup" className="create-account">OR CREATE ACCOUNT?</Link>
-        </div>
 
         {/* <div className="demodash">
           <Link to="/dashboard">dashboard</Link>

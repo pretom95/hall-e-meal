@@ -53,23 +53,76 @@
   
   /* Signup Button */
   .signup-button {
-    width: 200%;
-    padding: 10px;
-    margin-top: 20px;
-    background: linear-gradient(to right, #ffd700, #ff9900);
-    border: black;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    color: red;
-    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    background-color: #ffcc00;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #000000;
+    gap: 10px;
     font-weight: bold;
+    border: 3px solid #a62e064d;
+    outline: none;
+    overflow: hidden;
+    font-size: 18px !important;
+    cursor: pointer;
+    width: 116px;
+    height: 50px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
   }
   
   .signup-button:hover {
-    background: #ffcc00;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    border-color: #fff9;
   }
   
+  .signup-button:hover .icon {
+    transform: translate(4px);
+  }
+  
+  .signup-button::before {
+    animation: shine 1.5s ease-out infinite;
+  }
+  
+  .signup-button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100px;
+    }
+  
+    60% {
+      left: 100%;
+    }
+  
+    to {
+      left: 100%;
+    }
+  }
   /* Footer Text */
   .footer-text {
     margin-top: 20px;

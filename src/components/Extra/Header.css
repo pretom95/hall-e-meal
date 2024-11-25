@@ -1,0 +1,47 @@
+.komola {
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #f0a500;
+}
+
+.mine {
+    display: inline-flex;
+    /* position: absolute; */
+    /* justify-content: center; */
+    margin-left: 20%;
+    font-size: large;
+}
+
+.wel {
+    font-size: 30px;
+}
+
+.dashboard-header {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}

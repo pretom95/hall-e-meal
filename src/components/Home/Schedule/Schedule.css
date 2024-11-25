@@ -42,14 +42,14 @@
   }
   
   .schedule-table th {
-    background-color: #f8f9fa;
+    background-color: #f0a500;
     font-weight: bold;
   }
   
   .book-button {
     padding: 5px 10px;
-    background-color: #28a745;
-    color: white;
+    background-color: #f0a500;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;
