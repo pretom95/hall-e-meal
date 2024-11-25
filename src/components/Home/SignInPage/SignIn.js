@@ -28,7 +28,7 @@ const SignIn = () => {
               <label htmlFor="remember">REMEMBER FOR 1 MONTH?</label>
             </div>
             <div>
-              <Link to="/stddashboard" className="nbutton">Sign In</Link>
+              <a href="/dashboard/student" className="nbutton">Sign In</a>
             </div>
             <br />
 

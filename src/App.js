@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from "./components/Home/LandingPage/Landing";
 import SignIn from "./components/Home/SignInPage/SignIn";
 import SignUp from "./components/Home/SignUpPage/SignUp";
-import Dashboard from "./components/Home/Dashoboard/Student/StdDashboard";
 import StdDashboard from "./components/Home/Dashoboard/Student/StdDashboard";
 import MgrDashboard from "./components/Home/Dashoboard/Manager/MgrDashboard";
 import Billing from "./components/Home/Billing/Billing";
@@ -24,11 +23,6 @@ function App() {
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/mgrdashboard" element={<MgrDashboard/>}/>
-          <Route path="/billing" element={<Billing/>}/>
-          <Route path="/schedule" element={<Schedule/>}/>
-          <Route path="/history" element={<History/>}/>
-          <Route path="/notifications" element={<NotificationPage/>}/>
-          <Route path="/editProfile" element={<EditProfile/>}/>
         
       </Routes>
     </Router>

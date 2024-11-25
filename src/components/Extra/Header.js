@@ -30,7 +30,7 @@ export default function Header() {
               <Link to="/editProfile" className="nav-link"><b>Edit Profile</b></Link>
             </li>
             <li className="nav-item">
-              <Link to="/signin" className="nav-link"><b>Log out</b></Link>
+              <a href="/signin" className="nav-link"><b>Log out</b></a>
             </li>
           </ul>
         </div>

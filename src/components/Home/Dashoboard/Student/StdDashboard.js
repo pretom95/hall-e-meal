@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom'
 import "./StdDashboard.css"; // Add styles here
 
-const StdDashboard = () => {
+export default function StdDashboard () {
   return (
     <div className="dashboard">
       {/* Header Section */}
@@ -29,5 +28,3 @@ const StdDashboard = () => {
     </div>
   );
 };
-
-export default StdDashboard;

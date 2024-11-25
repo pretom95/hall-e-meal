@@ -78,7 +78,7 @@ const EditProfile = () => {
         {/* Submit and Cancel Buttons */}
         <div className="form-actions">
           <button type="submit">Save Changes</button>
-          <Link to="/stddashboard"><button
+          <Link to="/student"><button
             type="button"
           >
             Cancel
