@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import "./EditProfile.css"; // Include styles here or use inline styling
 
 const EditProfile = () => {
@@ -77,12 +78,11 @@ const EditProfile = () => {
         {/* Submit and Cancel Buttons */}
         <div className="form-actions">
           <button type="submit">Save Changes</button>
-          <button
+          <Link to="/stddashboard"><button
             type="button"
-            onClick={() => alert("Navigating back...")} // Navigate back logic
           >
             Cancel
-          </button>
+          </button></Link>
         </div>
       </form>
     </div>

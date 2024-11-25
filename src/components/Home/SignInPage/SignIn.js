@@ -27,7 +27,7 @@ const SignIn = () => {
             <label htmlFor="remember">REMEMBER FOR 1 MONTH?</label>
           </div>
           <div>
-          <Link to="/stddashboard"className="signin-button">Sign In</Link>
+          <Link to="/stddashboard"className="nbutton">Sign In</Link>
         </div>
         </form>
         <p></p>

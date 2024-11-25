@@ -39,9 +39,9 @@ const StdDashboard = () => {
 
       {/* Buttons Section */}
       <footer className="dashboard-footer">
-      <li> <Link to="/history" className="button">Meal history</Link></li>
-      <li> <Link to="/billing" className="button">Make payment</Link></li>
-      <li> <Link to="/editprofile" className="button">Edit Profile</Link></li>
+      <div> <Link to="/history" className="button">Meal history</Link></div>
+      <div> <Link to="/billing" className="button">Make payment</Link></div>
+      <div> <Link to="/editprofile" className="button">Edit Profile</Link></div>
       </footer>
     </div>
   );

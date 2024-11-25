@@ -29,9 +29,11 @@ const SignUp = () => {
           <Link to="/signin"className="signup-button">Sign Up</Link>
         </div>
         </form>
-        <div className="create-account">
-          <Link to="/signin"className="create-account">ALREADY HAVE ACCOUNT?</Link>
-        </div>
+        <div className='my-5 text-center'>
+          <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="#!"
+                    class="fw-bold text-body"><Link to={"/signin"}><u>Sign in now</u></Link></a></p>
+          
+          </div>
       </div>
     </div>
   );

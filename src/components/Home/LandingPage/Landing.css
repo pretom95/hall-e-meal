@@ -112,26 +112,78 @@
     font-weight: 400;
   }
   
-  /* Signup Button */
-  .button {
-    background-color: #f3e2b2; /* Light beige color */
-    color: #000; /* Black text color */
-    border: 1px solid #000; /* Black border */
-    border-radius: 50px; /* Rounded edges */
-    padding: 10px 30px; /* Padding for height and width */
-    font-size: 16px; /* Font size for the text */
-    font-weight: bold; /* Bold text */
-    text-align: center; /* Center-align the text */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: all 0.3s ease; /* Smooth hover effect */
+ 
+/* From Uiverse.io by satyamchaudharydev */ 
+.nbutton {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: #ffcc00;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #a62e064d;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nbutton:hover {
+  transform: scale(1.05);
+  border-color: #fff9;
+}
+
+.nbutton:hover .icon {
+  transform: translate(4px);
+}
+
+.nbutton:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.nbutton::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
   }
-  
-  .button:hover {
-    background-color: #f5d78c; /* Slightly darker beige for hover effect */
-    transform: scale(1.05); /* Slight zoom on hover */
+
+  60% {
+    left: 100%;
   }
-  
-  
+
+  to {
+    left: 100%;
+  }
+}
+
   
   .create-account {
     margin-top: 15px;
