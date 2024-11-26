@@ -44,7 +44,7 @@ const NotificationPage = () => {
   return (
     <div className="notification-page">
       <header className="notification-header">
-        <h1>Notifications</h1>
+        <h1>Notices</h1>
         <p>Stay updated with the latest announcements and reminders.</p>
       </header>
 

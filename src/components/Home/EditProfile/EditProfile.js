@@ -49,6 +49,7 @@ const EditProfile = () => {
             value={formData.email}
             onChange={handleInputChange}
           />
+          
         </label>
         
         {/* Password Field */}

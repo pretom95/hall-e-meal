@@ -19,7 +19,7 @@ export default function StdDashboard () {
           </div>
           <div className="stat-card">
             <h3>Outstanding Dues</h3>
-            <p>$15.00</p>
+            <p>BDT 150.00</p>
           </div>
         </div>
       </main>

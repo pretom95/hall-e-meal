@@ -48,7 +48,7 @@ const Billing = () => {
               <span>Total Amount:</span> <span>${billingDetails.totalAmount}</span>
             </div>
             <button className="pay-now-button" onClick={handlePayNow}>
-              Pay Now
+              Print
             </button>
           </section>
     
