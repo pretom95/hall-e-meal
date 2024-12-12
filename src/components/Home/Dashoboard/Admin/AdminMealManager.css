@@ -1,0 +1,77 @@
+.admin-meal-manager {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .admin-meal-manager header {
+    background-color: #f0a500;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    
+  }
+  
+  .admin-meal-manager main {
+    margin-top: 2px;
+  }
+  
+  .admin-meal-manager section {
+    margin-bottom: 30px;
+  }
+  
+  .admin-meal-manager form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .admin-meal-manager form input {
+    padding: 5px;
+    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+  }
+  
+  .admin-meal-manager button {
+    background-color: #f0a500;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .admin-meal-manager button:hover {
+    background-color: #f0a500;
+  }
+  
+  .admin-meal-manager table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .admin-meal-manager table th,
+  .admin-meal-manager table td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .admin-meal-manager table th {
+    background-color: #f0a500;
+  }
+  
+  .admin-meal-manager .message {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  .admin-meal-manager .remove-button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+  }
+  
+  .admin-meal-manager .remove-button:hover {
+    background-color: #cc0000;
+  }
+  

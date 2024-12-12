@@ -139,3 +139,7 @@
   .link:hover {
     text-decoration: underline;
   }
+
+  .allert{
+    color: red;
+  }

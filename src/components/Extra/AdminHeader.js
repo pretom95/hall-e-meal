@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import axios from "axios";
 
-export default function Header() {
+export default function AdminHeader() {
   const [userName, setUserName] = useState("User"); // Default user name
   const [error, setError] = useState("");
   const [is_manager, setIs_manager] = useState(false)
@@ -54,32 +54,32 @@ export default function Header() {
       <div className="collapse navbar-collapse mine" id="navbarTogglerDemo03">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0 nav nav-tabs" id="nav-tab" role="tablist">
           <li className="nav-item active">
-            <Link to="/dashboard/student" className="nav-item nav-link" id="nav-home-tab">
+            <Link to="/admin/home" className="nav-item nav-link" id="nav-home-tab">
               <b>Home</b>
             </Link>
           </li>
           <li className="nav-item active">
-            <Link to="/dashboard/schedule" className="nav-item nav-link" id="nav-home-tab">
-              <b>Schedule</b>
+            <Link to="/admin/manager" className="nav-item nav-link" id="nav-home-tab">
+              <b>Managers</b>
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard/notifications" className="nav-item nav-link" id="nav-home-tab">
+            <Link to="/admin/notifications" className="nav-item nav-link" id="nav-home-tab">
               <b>Notice</b>
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard/history" className="nav-item nav-link" id="nav-home-tab">
-              <b>Meal History</b>
+            <Link to="/admin/overview" className="nav-item nav-link" id="nav-home-tab">
+              <b>Meal Overview</b>
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard/billing" className="nav-item nav-link" id="nav-home-tab">
-              <b>Bill Details</b>
+            <Link to="/admin/sale" className="nav-item nav-link" id="nav-home-tab">
+              <b>Total Sale</b>
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard/editProfile" className="nav-item nav-link" id="nav-home-tab">
+            <Link to="/admin/editAdmin" className="nav-item nav-link" id="nav-home-tab">
               <b>Edit Profile</b>
             </Link>
           </li>

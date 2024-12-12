@@ -59,3 +59,15 @@
     background-color: #218838;
   }
   
+  .quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .success-message{
+    color: #218838;
+    text-align: center;
+  }

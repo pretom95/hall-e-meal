@@ -26,7 +26,7 @@
     font-weight: bold;
   }
   
-  .pay-now-button {
+  .print-button {
     display: block;
     margin: 20px auto;
     background-color: #28a745;
@@ -37,7 +37,7 @@
     cursor: pointer;
   }
   
-  .pay-now-button:hover {
+  .print-button:hover {
     background-color: #218838;
   }
   

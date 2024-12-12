@@ -1,21 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { MenuItem, Select, FormControl, InputLabel, Typography } from "@mui/material";
+import axios from "axios";
 import "./History.css";
 
 const History = () => {
-  const [meals, setMeals] = useState([
-    { id: 1, type: "Breakfast", date: "2024-11-01", cost: 50, status: "Taken" },
-    { id: 2, type: "Lunch", date: "2024-11-01", cost: 100, status: "Skipped" },
-    { id: 3, type: "Dinner", date: "2024-11-02", cost: 120, status: "Taken" },
-    // Add more meal history data here
-  ]);
-
+  const [meals, setMeals] = useState([]);
   const [filter, setFilter] = useState("All");
+  const [error, setError] = useState("");
+  const [userData, setUserData] = useState({})
+
+  useEffect(() => {
+    const userdata = JSON.parse(localStorage.getItem("user"))
+    setUserData(userdata)
+    // userData: {
+    //   student_ID:,
+    //   name,
+    //   email,
+    //   is_manager,
+    // }
+
+  }, []);
+
+  useEffect(() => {
+    const fetchMealHistory = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const headers = { Authorization: `Bearer ${token}` };
+
+        const response = await axios.get("http://localhost:5000/history/meal-history", {
+          headers,
+        });
+        setMeals(response.data);
+      } catch (err) {
+        console.error("Error fetching meal history:", err);
+        setError("Failed to fetch meal history. Please try again.");
+      }
+    };
+
+    fetchMealHistory();
+  }, []);
 
   // Filter meals based on selected filter
-  const filteredMeals =
-    filter === "All" ? meals : meals.filter((meal) => meal.type === filter);
+  const filteredMeals = filter === "All" ? meals : meals.filter((meal) => meal.type === filter);
 
   // Define Data Grid columns
   const columns = [
@@ -31,7 +58,7 @@ const History = () => {
     },
     {
       field: "cost",
-      headerName: "Cost (BDT)",
+      headerName: "Cost (BDT)", // Already set up to show cost
       flex: 1,
       type: "number",
     },
@@ -49,11 +76,10 @@ const History = () => {
         </span>
       ),
     },
-  ];
+  ];  
 
   return (
     <div className="meal-history-container">
-      {/* Header Section */}
       <header className="history-header">
         <Typography variant="h4" component="h1">
           Meal History
@@ -63,11 +89,10 @@ const History = () => {
         </Typography>
       </header>
 
-      {/* Filter Section */}
       <div className="filter-section">
         <FormControl style={{ minWidth: 200 }}>
-          <InputLabel id="meal-filter-label">Filter by Meal Type</InputLabel>
-          <p></p>
+          <InputLabel id="meal-filter-label" className="allign">Filter by Meal Type</InputLabel>
+          <p className="allign"></p>
           <Select
             labelId="meal-filter-label"
             value={filter}
@@ -81,8 +106,8 @@ const History = () => {
         </FormControl>
       </div>
 
-      {/* History Table */}
       <section className="history-table">
+        {error && <p className="error-message">{error}</p>}
         <DataGrid
           rows={filteredMeals}
           columns={columns}

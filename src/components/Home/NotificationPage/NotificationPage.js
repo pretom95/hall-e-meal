@@ -1,40 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./NotificationPage.css";
 
 const NotificationPage = () => {
-  const [notifications, setNotifications] = useState([
-    {
-      id: 1,
-      type: "Meal Schedule",
-      message: "Breakfast menu updated for tomorrow.",
-      date: "2024-11-14",
-      read: false,
-    },
-    {
-      id: 2,
-      type: "Billing",
-      message: "Your payment for October is due.",
-      date: "2024-11-13",
-      read: true,
-    },
-    {
-      id: 3,
-      type: "Announcement",
-      message: "Special dinner scheduled on Sunday evening.",
-      date: "2024-11-12",
-      read: false,
-    },
-  ]);
-
+  const [notifications, setNotifications] = useState([]);
   const [filter, setFilter] = useState("All");
+  const [error, setError] = useState("");
+  const [userData, setUserData] = useState({})
 
-  const handleMarkAsRead = (id) => {
-    setNotifications(
-      notifications.map((notification) =>
-        notification.id === id ? { ...notification, read: true } : notification
-      )
-    );
-  };
+  useEffect(() => {
+    const userdata = JSON.parse(localStorage.getItem("user"))
+    setUserData(userdata)
+    // userData: {
+    //   student_ID:,
+    //   name,
+    //   email,
+    //   is_manager,
+    // }
+
+  }, []);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const headers = { Authorization: `Bearer ${token}` };
+
+        const response = await axios.get("http://localhost:5000/notice", {
+          headers,
+        });
+        setNotifications(response.data);
+      } catch (err) {
+        console.error("Error fetching notifications:", err);
+        setError("Failed to fetch notifications.");
+      }
+    };
+
+    fetchNotifications();
+  }, []);
+
+  // const handleMarkAsRead = async (id) => {
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     const headers = { Authorization: `Bearer ${token}` };
+
+  //     await axios.put(`http://localhost:5000/notice/${id}/mark-read`, {}, { headers });
+
+  //     setNotifications(
+  //       notifications.map((notification) =>
+  //         notification.id === id ? { ...notification, read: true } : notification
+  //       )
+  //     );
+  //   } catch (err) {
+  //     console.error("Error marking notification as read:", err);
+  //     setError("Failed to mark notification as read.");
+  //   }
+  // };
 
   const filteredNotifications =
     filter === "All"
@@ -75,16 +96,17 @@ const NotificationPage = () => {
             <h3>{notification.type}</h3>
             <p>{notification.message}</p>
             <p className="notification-date">{notification.date}</p>
-            {!notification.read && (
-              <button
-                className="mark-read-button"
-                onClick={() => handleMarkAsRead(notification.id)}
-              >
-                Mark as Read
-              </button>
-            )}
+            {/* {!notification.read && (
+              // <button
+              //   className="mark-read-button"
+              //   onClick={() => handleMarkAsRead(notification.id)}
+              // >
+              //   Mark as Read
+              // </button>
+            )} */}
           </div>
         ))}
+        {error && <p className="error-message">{error}</p>}
       </section>
     </div>
   );

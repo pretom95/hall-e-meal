@@ -1,0 +1,24 @@
+.admin-meal-overview {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #000000;
+    font-style: italic;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .chart-container {
+    max-width: 1000px; /* Adjust width */
+    height: 500px;    /* Adjust height */
+    margin: 0 auto;
+  }
+  
+  

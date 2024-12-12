@@ -1,83 +1,77 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import "./Billing.css";
 
 const Billing = () => {
-    const [billingDetails, setBillingDetails] = useState({
-        mealsTaken: 60,
-        costPerMeal: 5,
-        extraCharges: 20,
-        discounts: 10,
-        totalAmount: 310,
-      });
-    
-      const [transactionHistory, setTransactionHistory] = useState([
-        { id: 1, date: "2024-10-01", amount: 300, status: "Paid" },
-        { id: 2, date: "2024-09-01", amount: 320, status: "Paid" },
-      ]);
-    
-      const handlePayNow = () => {
-        // Simulate redirection to payment gateway
-        alert("Redirecting to payment gateway...");
-      };
-    
-      return (
-        <div className="billing-page-container">
-          {/* Header */}
-          <header className="billing-header">
-            <h1>Monthly Billing</h1>
-            <p>View your meal expenses and payment history.</p>
-          </header>
-    
-          {/* Billing Breakdown */}
-          <section className="billing-breakdown">
-            <h2>Billing Details</h2>
-            <div className="breakdown-row">
-              <span>Meals Taken:</span> <span>{billingDetails.mealsTaken}</span>
-            </div>
-            <div className="breakdown-row">
-              <span>Cost per Meal:</span> <span>${billingDetails.costPerMeal}</span>
-            </div>
-            <div className="breakdown-row">
-              <span>Extra Charges:</span> <span>${billingDetails.extraCharges}</span>
-            </div>
-            <div className="breakdown-row">
-              <span>Discounts:</span> <span>-${billingDetails.discounts}</span>
-            </div>
-            <hr />
-            <div className="breakdown-row total">
-              <span>Total Amount:</span> <span>${billingDetails.totalAmount}</span>
-            </div>
-            <button className="pay-now-button" onClick={handlePayNow}>
-              Print
-            </button>
-          </section>
-    
-          {/* Transaction History */}
-          <section className="transaction-history">
-            <h2>Transaction History</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transactionHistory.map((transaction) => (
-                  <tr key={transaction.id}>
-                    <td>{transaction.date}</td>
-                    <td>${transaction.amount}</td>
-                    <td className={transaction.status.toLowerCase()}>
-                      {transaction.status}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-        </div>
-      );
+  const [billingDetails, setBillingDetails] = useState(null);
+  const [error, setError] = useState("");
+  const receiptRef = useRef();
+
+  useEffect(() => {
+    const fetchBillingDetails = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const headers = { Authorization: `Bearer ${token}` };
+
+        const response = await axios.get("http://localhost:5000/billing/current-month", {
+          headers,
+        });
+        setBillingDetails(response.data);
+      } catch (err) {
+        console.error("Error fetching billing details:", err);
+        setError("Failed to fetch billing details.");
+      }
     };
+
+    fetchBillingDetails();
+  }, []);
+
+  const handlePrintReceipt = () => {
+    const printContent = receiptRef.current;
+    const newWindow = window.open("", "_blank", "width=800,height=600");
+    newWindow.document.write("<html><head><title>Monthly Receipt</title>");
+    newWindow.document.write(
+      '<style>body { font-family: Arial, sans-serif; margin: 20px; }</style></head><body>'
+    );
+    newWindow.document.write(printContent.innerHTML);
+    newWindow.document.write("</body></html>");
+    newWindow.document.close();
+    newWindow.print();
+  };
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!billingDetails) {
+    return <p>Loading...</p>;
+  }
+
+  // Get the current month and year for the receipt
+  const currentDate = new Date();
+  const month = currentDate.toLocaleString("default", { month: "long" });
+  const year = currentDate.getFullYear();
+
+  return (
+    <div className="billing-page-container">
+      {/* Billing Details */}
+      <section className="billing-breakdown" ref={receiptRef}>
+        <h2>Monthly Receipt</h2>
+        <div className="breakdown-row">
+          <span><b>Month:</b></span> <span>{month} {year}</span>
+        </div>
+        <div className="breakdown-row">
+          <span><b>Total Meals Taken:</b></span> <span>{billingDetails.mealsTaken}</span>
+        </div>
+        <div className="breakdown-row total">
+          <span>Total Amount:</span> <span>{billingDetails.totalAmount} BDT</span>
+        </div>
+      </section>
+      <button className="print-button" onClick={handlePrintReceipt}>
+        Print Receipt
+      </button>
+    </div>
+  );
+};
 
 export default Billing;

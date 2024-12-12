@@ -12,7 +12,7 @@
   /* Left Section */
   .left-section {
     flex: 1;
-    background: linear-gradient(to bottom right,#cf7d04, #ffcc00);
+    background: linear-gradient(to bottom right,#cf7d04, #f7cc20);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,6 +80,7 @@
     display: flex;
     align-items: center;
     margin: 10px 0;
+    
   }
   
   .checkbox-container input {
@@ -87,24 +88,25 @@
   }
   
   .nbutton {
-    position: relative;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    padding-block: 0.5rem;
-    padding-inline: 1.25rem;
-    background-color: #ffcc00;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000000;
-    gap: 10px;
-    font-weight: bold;
-    border: 3px solid #a62e064d;
+    position: relative !important;
+    transition: all 0.3s ease-in-out !important;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2) !important;
+    padding-block: 0.5rem !important;
+    padding-inline: 1.25rem !important;
+    background-color: #ffcc00 !important;
+    /* background-color: red; */
+    border-radius: 150px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #000000 !important;
+    gap: 10px !important;
+    font-weight: bold !important;
+    border: 3px solid #a62e064d !important;
     outline: none;
     overflow: hidden;
-    font-size: 15px;
-    cursor: pointer;
+    font-size: 15px !important;
+    cursor: pointer !important;
   }
   
   .icon {
@@ -172,3 +174,10 @@
   .create-account a:hover {
     text-decoration: underline;
   }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+  

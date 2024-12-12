@@ -1,0 +1,41 @@
+.admin-dashboard {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+
+
+main {
+  margin-top: 20px;
+}
+
+.today-meals table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.today-meals th, .today-meals td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+.today-meals th {
+  background-color: #f0a500;
+}
+
+.stats {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.stat-card p {
+  margin: 10px 0;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
+}

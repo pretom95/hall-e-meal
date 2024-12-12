@@ -8,6 +8,7 @@
   .dashboard-main {
     margin-top: 0;
     text-align: center;
+    
   }
   
   .stats {
@@ -82,4 +83,32 @@
     }
   }
   
+  /* Sliding Message Bar */
+
+  .sliding-back {
+    background-color: #f0a500;
+    padding: 6px 0;
+    margin-top: 72px;
+  }
   
+.sliding-bar {
+  color: white;
+  text-align: center !important;
+  padding: 6px 0;
+  font-size: 20px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: slide 20s linear infinite ;
+  margin-top: 72px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+

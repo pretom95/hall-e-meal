@@ -4,8 +4,7 @@ import axios from "axios";
 import { Button } from "@mui/material";
 import "./EditProfile.css"; // Include styles here or use inline styling
 
-const EditProfile = () => {
-  // State to store form data and errors
+const AdminEdit = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,29 +13,21 @@ const EditProfile = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const navigate = useNavigate(); 
-  const [userData, setUserData] = useState({})
+  const navigate = useNavigate();
+  const [adminData, setAdminData] = useState({});
 
   useEffect(() => {
-    const userdata = JSON.parse(localStorage.getItem("user"))
-    setUserData(userdata)
-    // userData: {
-    //   student_ID:,
-    //   name,
-    //   email,
-    //   is_manager,
-    // }
-
+    const adminInfo = JSON.parse(localStorage.getItem("user"));
+    setAdminData(adminInfo);
   }, []);
 
   useEffect(() => {
-    // Fetch the current user's details from API (if you want to pre-fill the form)
-    const fetchUserDetails = async () => {
+    const fetchAdminDetails = async () => {
       try {
         const token = localStorage.getItem("token");
         const headers = { Authorization: `Bearer ${token}` };
 
-        const response = await axios.get("http://localhost:5000/profile/get-profile", {
+        const response = await axios.get("http://localhost:5000/admin/get-profile", {
           headers,
         });
 
@@ -47,12 +38,12 @@ const EditProfile = () => {
           confirmPassword: "",
         });
       } catch (err) {
-        console.error("Error fetching user details:", err);
-        setErrorMessage("Failed to fetch user details.");
+        console.error("Error fetching admin details:", err);
+        setErrorMessage("Failed to fetch admin details.");
       }
     };
 
-    fetchUserDetails();
+    fetchAdminDetails();
   }, []);
 
   const handleInputChange = (e) => {
@@ -74,25 +65,22 @@ const EditProfile = () => {
       const headers = { Authorization: `Bearer ${token}` };
 
       const response = await axios.put(
-        "http://localhost:5000/profile/update-profile",
+        "http://localhost:5000/admin/update-profile",
         {
           name: formData.name,
           email: formData.email,
           password: formData.password,
-          confirmPassword: formData.confirmPassword,
         },
         { headers }
       );
 
-      // Handle success
       setSuccessMessage(response.data.message);
-      const tempUserData = userData;
+      const tempUserData = adminData;
       tempUserData.name = formData.name;
       localStorage.setItem("user",JSON.stringify(tempUserData))
-      navigate("/dashboard/student");
+      navigate("/admin/home");
       setErrorMessage(""); // Clear any error messages
     } catch (error) {
-      // Handle error response
       if (error.response && error.response.data) {
         setErrorMessage(error.response.data.error || "Failed to update profile.");
       } else {
@@ -104,9 +92,8 @@ const EditProfile = () => {
 
   return (
     <div className="edit-profile">
-      <h2>Edit Profile</h2>
+      <h2>Edit Admin Profile</h2>
 
-      {/* Display success or error message */}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}
 
@@ -144,7 +131,6 @@ const EditProfile = () => {
             value={formData.password}
             onChange={handleInputChange}
             placeholder="Enter new password"
-            required
           />
         </label>
 
@@ -157,18 +143,14 @@ const EditProfile = () => {
             value={formData.confirmPassword}
             onChange={handleInputChange}
             placeholder="Confirm new password"
-            required
           />
         </label>
 
         {/* Submit and Cancel Buttons */}
         <div className="form-actions">
-          <Button  onClick={(e)=>{handleSubmit(e)}} type="submit" >Save Changes</Button>
-          {/* <Link to="/student">
-            <button type="button">Cancel</button>
-          </Link> */}
-          <Button onClick={(e)=>{handleSubmit(e)}} type="button">
-              <b>Cancel</b>
+        <Button  onClick={(e)=>{handleSubmit(e)}} type="submit" >Save Changes</Button>
+          <Button onClick={() => navigate("/admin/home")} type="button">
+            Cancel
           </Button>
         </div>
       </form>
@@ -176,4 +158,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default AdminEdit;
