@@ -235,7 +235,7 @@ const MgrDashboard = () => {
 
       {/* Meal Schedule Management */}
       <section className="schedule-management">
-        <h2>Meal Schedule Management</h2>
+        <h2><center>Meal Schedule Management</center></h2>
 
         <form onSubmit={editMeal ? handleUpdateMeal : handleAddMeal}>
           <label>
@@ -250,13 +250,21 @@ const MgrDashboard = () => {
           </label>
           <label>
             Meal Type:
-            <input
-              type="text"
+            <select
               name="meal_type"
               value={mealForm.meal_type}
               onChange={handleMealChange}
               required
-            />
+            >
+              <option value="" disabled>Select a meal type</option>
+              {/* Add meal type options here */}
+              <option value="Breakfast">Breakfast</option>
+              <option value="Special Breakfast">Special Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Special Lunch">Special Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Special Dinner">Special Dinner</option>
+            </select>
           </label>
           <label>
             Time:

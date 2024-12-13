@@ -8,34 +8,34 @@ import "./AdminMealOverview.css";
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 const AdminMealOverview = () => {
-  const [mealData, setMealData] = useState([]);
+  const [mealTypeData, setMealTypeData] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchMealOverview();
+    fetchMealTypeOverview();
   }, []);
 
-  const fetchMealOverview = async () => {
+  const fetchMealTypeOverview = async () => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
-
+      console.log("Ok")
       const response = await axios.get("http://localhost:5000/admin/meal-overview", {
         headers,
       });
-      setMealData(response.data);
+      setMealTypeData(response.data);
     } catch (err) {
-      console.error("Error fetching meal overview:", err);
-      setError("Failed to fetch meal overview. Please try again.");
+      console.error("Error fetching meal type overview:", err);
+      setError("Failed to fetch meal type overview. Please try again.");
     }
   };
 
   const chartData = {
-    labels: mealData.map((meal) => meal.description),
+    labels: mealTypeData.map((meal_type) => meal_type.type),
     datasets: [
       {
-        label: "Meals Sold",
-        data: mealData.map((meal) => meal.totalSold),
+        label: "Total Meals Sold",
+        data: mealTypeData.map((meal_type) => meal_type.totalSold),
         backgroundColor: [
           "#FF6384",
           "#36A2EB",
@@ -59,21 +59,19 @@ const AdminMealOverview = () => {
       },
       title: {
         display: true,
-        text: "Most Sold Meals",
+        text: "Meal Type Sales Overview",
       },
     },
   };
 
   return (
     <div className="admin-meal-overview">
-      <h1>Meal Overview</h1>
+      <h1>Meal Type Overview</h1>
       {error && <p className="error-message">{error}</p>}
-      {!error && mealData.length > 0 && (
-       
+      {!error && mealTypeData.length > 0 && (
         <Bar className="chart-container" data={chartData} options={chartOptions} />
-      
       )}
-      {mealData.length === 0 && !error && <p>No data available.</p>}
+      {mealTypeData.length === 0 && !error && <p>No data available.</p>}
     </div>
   );
 };

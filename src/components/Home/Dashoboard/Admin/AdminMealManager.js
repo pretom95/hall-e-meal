@@ -136,7 +136,6 @@ const AdminMealManager = () => {
                 <th>Name</th>
                 <th>Appointment Date</th>
                 <th>Retirement Date</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -147,14 +146,6 @@ const AdminMealManager = () => {
                   <td>{manager.name}</td>
                   <td>{manager.appointment_date}</td>
                   <td>{manager.retirement_date}</td>
-                  <td>
-                    <button
-                      onClick={() => handleRemoveManager(manager.manager_ID)}
-                      className="remove-button"
-                    >
-                      Remove
-                    </button>
-                  </td>
                 </tr>
               ))}
             </tbody>
