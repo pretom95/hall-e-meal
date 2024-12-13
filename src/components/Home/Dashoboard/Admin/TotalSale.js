@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from "chart.js";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from "chart.js";
 import "./TotalSale.css";
 
 // Register Chart.js components
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Legend);
 
 const TotalSale = () => {
-  const [salesData, setSalesData] = useState([]);
+  const [monthlySalesData, setMonthlySalesData] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchSalesOverview();
+    fetchMonthlySales();
   }, []);
 
-  const fetchSalesOverview = async () => {
+  const fetchMonthlySales = async () => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
@@ -23,22 +23,24 @@ const TotalSale = () => {
       const response = await axios.get("http://localhost:5000/admin/sales-overview", {
         headers,
       });
-      setSalesData(response.data);
+      setMonthlySalesData(response.data);
     } catch (err) {
-      console.error("Error fetching sales overview:", err);
-      setError("Failed to fetch sales overview. Please try again.");
+      console.error("Error fetching monthly sales:", err);
+      setError("Failed to fetch monthly sales data. Please try again.");
     }
   };
 
   const chartData = {
-    labels: salesData.map((sale) => sale.period),
+    labels: monthlySalesData.map((sale) => sale.month),
     datasets: [
       {
         label: "Total Sales (BDT)",
-        data: salesData.map((sale) => sale.totalSale),
-        backgroundColor: ["#4BC0C0", "#FFCE56"],
-        borderColor: "#fff",
-        borderWidth: 1,
+        data: monthlySalesData.map((sale) => sale.totalSale),
+        borderColor: "#36A2EB",
+        backgroundColor: "rgba(54, 162, 235, 0.5)",
+        borderWidth: 2,
+        tension: 0.2,
+        fill: true,
       },
     ],
   };
@@ -51,29 +53,29 @@ const TotalSale = () => {
       },
       title: {
         display: true,
-        text: "Weekly and Monthly Sales Overview",
+        text: "Monthly Sales Overview (BDT)",
       },
     },
   };
 
   return (
-    <div className="total-sale-container">
-      <h1>Total Sale Overview</h1>
+    <div className="monthly-sales-container">
+      <h1>Monthly Sales Overview</h1>
       {error && <p className="error-message">{error}</p>}
-      {!error && salesData.length > 0 && (
+      {!error && monthlySalesData.length > 0 && (
         <div>
-          <Bar data={chartData} options={chartOptions} />
+          <Line data={chartData} options={chartOptions} />
           <table className="sales-table">
             <thead>
               <tr>
-                <th>Period</th>
-                <th>Total Sale (BDT)</th>
+                <th>Month</th>
+                <th>Total Sales (BDT)</th>
               </tr>
             </thead>
             <tbody>
-              {salesData.map((sale) => (
-                <tr key={sale.period}>
-                  <td>{sale.period.charAt(0).toUpperCase() + sale.period.slice(1)}</td>
+              {monthlySalesData.map((sale) => (
+                <tr key={sale.month}>
+                  <td>{sale.month}</td>
                   <td>{sale.totalSale}</td>
                 </tr>
               ))}
@@ -81,7 +83,7 @@ const TotalSale = () => {
           </table>
         </div>
       )}
-      {salesData.length === 0 && !error && <p>No data available.</p>}
+      {monthlySalesData.length === 0 && !error && <p>No data available.</p>}
     </div>
   );
 };
